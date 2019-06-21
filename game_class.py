@@ -18,7 +18,6 @@ class Game :
         self.gameover = False
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
 
-
         '''self.img_free_cell = image.load('images/free.png')
         self.img_mark_cell = image.load('images/mark.png')
         self.img_bomb = image.load('images/-1.png')

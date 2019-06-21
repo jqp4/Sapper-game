@@ -49,28 +49,19 @@ def main() :
             if event.key == pygame.K_r : # restart
                 game.restart()
 
-            '''if event.key == pygame.K_UP :
-                game.cursor[1] += -1
-            if event.key == pygame.K_DOWN :
-                game.cursor[1] += 1
-            if event.key == pygame.K_RIGHT :
-                game.cursor[0] += 1
-            if event.key == pygame.K_LEFT :
-                game.cursor[0] += -1'''
-
             if event.key == pygame.K_m :
-                game.field.field[game.cursor[1]][game.cursor[0]].touch(0)
+                game.field.field[game.cursor[0]][game.cursor[1]].touch(0)
             if event.key == pygame.K_u :
-                game.field.field[game.cursor[1]][game.cursor[0]].touch(2)
+                game.field.field[game.cursor[0]][game.cursor[1]].touch(2)
 
             if event.key == pygame.K_d :
                 x = game.cursor[0]
                 y = game.cursor[1]
-                game.field.field[y][x].touch(1)
-                if game.field.field[y][x].face == 3 :
+                game.field.field[x][y].touch(1)
+                if game.field.field[x][y].face == 3 :
                     game.finish_game()
-                if (game.field.field[y][x].status == 0) & (game.field.field[y][x].face == 2) :
-                    game.field.uncover_void(y, x)
+                if (game.field.field[x][y].status == 0) & (game.field.field[x][y].face == 2) :
+                    game.field.uncover_void(x, y)
             
 
         # --- игровая логика ---
@@ -88,11 +79,11 @@ def main() :
                 x = i * game.cell_size
                 y = j * game.cell_size
 
-                face = game.field.field[j][i].face
+                face = game.field.field[i][j].face
                 img = None
                 if face == 0 : img = game.img_free_cell
                 if face == 1 : img = game.img_mark_cell
-                if face == 2 : img = game.img_ba[game.field.field[j][i].status]
+                if face == 2 : img = game.img_ba[game.field.field[i][j].status]
                 if face == 3 : img = game.img_bomb
                     
                 screen.blit(img, [x, y])
@@ -100,7 +91,7 @@ def main() :
 
 
         pygame.display.flip()
-        pygame.time.wait(10)
+        pygame.time.wait(5)
 
 
     sys.exit()
