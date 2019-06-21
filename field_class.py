@@ -67,15 +67,14 @@ class Field :
 
 
     def uncover_void(self, x, y) :
-        #print('sfdf')
         for dx in [-1, 0, 1] :
             for dy in [-1, 0, 1] :
-                if not (dx == dy == 0) :
-                    try :
-                        if self.field[x + dx][y + dy].satus == 0 :
-                            self.field[x + dx][y + dy].face = 2
+                if (0 <= x + dx <= self.lenX - 1) & (0 <= y + dy <= self.lenY - 1) & (not (dx == dy == 0)):
+                    if self.field[x + dx][y + dy].face == 0 :
+                        self.field[x + dx][y + dy].face = 2
+                        if self.field[x + dx][y + dy].status == 0 :
                             self.uncover_void(x + dx, y + dy)
-                    except : pass
+                            
 
 
     def open_all(self) :

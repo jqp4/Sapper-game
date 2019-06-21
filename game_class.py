@@ -12,7 +12,7 @@ class Game :
     def __init__(self) :
         self.lenX = 40
         self.lenY = 20
-        self.ba = int(self.lenX * self.lenY / 5)
+        self.ba = int(self.lenX * self.lenY / 15)
         self.field = Field(self.lenX, self.lenY, self.ba)
         self.field.generate()
         self.gameover = False
@@ -57,20 +57,6 @@ class Game :
         self.cursor = [-1, -1]
         self.field.open_all()
         self.gameover = True
-
-
-    '''def move_cursor(self, key, move_keys) :
-        if key == move_keys :
-            self.cursor[1] += -1
-        if key == pygame.K_DOWN :
-            self.cursor[1] += 1
-        if key == pygame.K_RIGHT :
-            self.cursor[0] += 1
-        if key == pygame.K_LEFT :
-            self.cursor[0] += -1'''
-
-
-
 
 
 
