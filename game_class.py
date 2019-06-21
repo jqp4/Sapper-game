@@ -53,6 +53,12 @@ class Game :
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
 
 
+    def open_all(self) :
+        self.cursor = [-1, -1]
+        self.field.open_all()
+        self.gameover = True
+
+
     '''def move_cursor(self, key, move_keys) :
         if key == move_keys :
             self.cursor[1] += -1

@@ -48,6 +48,8 @@ def main() :
                 w_close = True
             if event.key == pygame.K_r : # restart
                 game.restart()
+            if event.key == pygame.K_o : # open all
+                game.open_all()
 
             if event.key == pygame.K_m :
                 game.field.field[game.cursor[0]][game.cursor[1]].touch(0)

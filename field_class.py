@@ -50,18 +50,19 @@ class Field :
 
     def generate(self) :
         for i in range(self.bombs_amount) :
-            self.field[randint(0, self.lenX - 1)][randint(0, self.lenY - 1)].status = -1
+            x = randint(0, self.lenX - 1)
+            y = randint(0, self.lenY - 1)
+            self.field[x][y].status = -1  
 
         for i in range(self.lenX) :
             for j in range(self.lenY) :
                 if self.field[i][j].status == 0 :
-                    nba = 0   # number od bombs around
+                    nba = 0   # number bombs around
                     for di in [-1, 0, 1] :
                         for dj in [-1, 0, 1] :
-                            try :
+                            if (0 <= i + di <= self.lenX - 1) & (0 <= j + dj <= self.lenY - 1) & (not (di == dj == 0)):
                                 if self.field[i + di][j + dj].status == -1 :
                                     nba += 1
-                            except : pass
                     self.field[i][j].status = nba
 
 
