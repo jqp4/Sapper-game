@@ -52,7 +52,9 @@ class Field :
         for i in range(self.bombs_amount) :
             x = randint(0, self.lenX - 1)
             y = randint(0, self.lenY - 1)
-            self.field[x][y].status = -1  
+            if self.field[x][y].status != -1 :
+                self.field[x][y].status = -1  
+            else : i -= 1
 
         for i in range(self.lenX) :
             for j in range(self.lenY) :

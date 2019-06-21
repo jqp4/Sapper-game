@@ -12,7 +12,7 @@ class Game :
     def __init__(self) :
         self.lenX = 40
         self.lenY = 20
-        self.ba = int(self.lenX * self.lenY / 15)
+        self.ba = int(self.lenX * self.lenY / 7)
         self.field = Field(self.lenX, self.lenY, self.ba)
         self.field.generate()
         self.gameover = False
