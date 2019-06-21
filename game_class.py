@@ -18,7 +18,6 @@ class Game :
         self.gameover = False
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
 
-
         '''self.img_free_cell = image.load('images/free.png')
         self.img_mark_cell = image.load('images/mark.png')
         self.img_bomb = image.load('images/-1.png')
@@ -52,6 +51,12 @@ class Game :
         self.field = Field(self.lenX, self.lenY, self.ba)
         self.field.generate()
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
+
+
+    def open_all(self) :
+        self.cursor = [-1, -1]
+        self.field.open_all()
+        self.gameover = True
 
 
     '''def move_cursor(self, key, move_keys) :
