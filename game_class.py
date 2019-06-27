@@ -5,37 +5,37 @@ import pygame
 class Hot_Keys :
 
     def __init__(self) :
-        #for i in range(97, 123) : print('\'{0}\' : pygame.K_{0}'.format(chr(i)))
-        self.pygame_keys = {    'a' : pygame.K_a
-                                'b' : pygame.K_b
-                                'c' : pygame.K_c
-                                'd' : pygame.K_d
-                                'e' : pygame.K_e
-                                'f' : pygame.K_f
-                                'g' : pygame.K_g
-                                'h' : pygame.K_h
-                                'i' : pygame.K_i
-                                'j' : pygame.K_j
-                                'k' : pygame.K_k
-                                'l' : pygame.K_l
-                                'm' : pygame.K_m
-                                'n' : pygame.K_n
-                                'o' : pygame.K_o
-                                'p' : pygame.K_p
-                                'q' : pygame.K_q
-                                'r' : pygame.K_r
-                                's' : pygame.K_s
-                                't' : pygame.K_t
-                                'u' : pygame.K_u
-                                'v' : pygame.K_v
-                                'w' : pygame.K_w
-                                'x' : pygame.K_x
-                                'y' : pygame.K_y
+        #for i in range(97, 123) : print('\'{0}\' : pygame.K_{0},'.format(chr(i)))
+        self.pygame_keys = {    'a' : pygame.K_a,
+                                'b' : pygame.K_b,
+                                'c' : pygame.K_c,
+                                'd' : pygame.K_d,
+                                'e' : pygame.K_e,
+                                'f' : pygame.K_f,
+                                'g' : pygame.K_g,
+                                'h' : pygame.K_h,
+                                'i' : pygame.K_i,
+                                'j' : pygame.K_j,
+                                'k' : pygame.K_k,
+                                'l' : pygame.K_l,
+                                'm' : pygame.K_m,
+                                'n' : pygame.K_n,
+                                'o' : pygame.K_o,
+                                'p' : pygame.K_p,
+                                'q' : pygame.K_q,
+                                'r' : pygame.K_r,
+                                's' : pygame.K_s,
+                                't' : pygame.K_t,
+                                'u' : pygame.K_u,
+                                'v' : pygame.K_v,
+                                'w' : pygame.K_w,
+                                'x' : pygame.K_x,
+                                'y' : pygame.K_y,
                                 'z' : pygame.K_z    }
 
 
     def set(self, args) :
-        new_keys = [self.pygame_keys[args[0]] for i in range(6)]
+        new_keys = [self.pygame_keys[args[i]] for i in range(6)]
 
         self.quit = new_keys[0]
         self.new_game = new_keys[1]
@@ -43,9 +43,6 @@ class Hot_Keys :
         self.mark = new_keys[3]
         self.unmark = new_keys[4]
         self.dig_out = new_keys[5]
-
-
-
 
 
 
@@ -73,11 +70,11 @@ class Game :
 
 
     def upload_images(self) :
-        self.img_free_cell = image.load('images_26x26/free.png')
-        self.img_mark_cell = image.load('images_26x26/mark.png')
-        self.img_bomb = image.load('images_26x26/bomb.png')
-        self.img_ba = [image.load('images_26x26/{}.png'.format(i)) for i in range(9)]
-        self.img_cursor = image.load('images_26x26/cursor.png')
+        self.img_free_cell = pygame.image.load('images_26x26/free.png')
+        self.img_mark_cell = pygame.image.load('images_26x26/mark.png')
+        self.img_bomb = pygame.image.load('images_26x26/bomb.png')
+        self.img_ba = [pygame.image.load('images_26x26/{}.png'.format(i)) for i in range(9)]
+        self.img_cursor = pygame.image.load('images_26x26/cursor.png')
 
         self.cell_size = self.img_free_cell.get_rect()[3]
         self.size = self.lenX * self.cell_size,  self.lenY * self.cell_size
@@ -92,8 +89,8 @@ class Game :
         self.field.generate()
         self.gameover = False
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
-        self.hot_keys = Hot_Keys()
-        self.hot_keys.set(self.upload_settings(filename='settings.mss'))
+        self.keys = Hot_Keys()
+        self.keys.set(self.upload_settings(filename='settings.mss'))
         self.upload_images()
 
 

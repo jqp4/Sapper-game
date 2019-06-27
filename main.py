@@ -44,19 +44,19 @@ def main() :
                     pass'''
 
             if event.type == pygame.KEYDOWN :
-                if event.key == pygame.K_q : # quit
+                if event.key == game.keys.quit :
                     w_close = True
-                if event.key == pygame.K_r : # restart
+                if event.key == game.keys.new_game :
                     game.restart()
-                if event.key == pygame.K_o : # open all
+                if event.key == game.keys.open_all_cells :
                     game.open_all()
 
-                if event.key == pygame.K_m :
+                if event.key == game.keys.mark :
                     game.field.field[game.cursor[0]][game.cursor[1]].touch(0)
-                if event.key == pygame.K_u :
+                if event.key == game.keys.unmark :
                     game.field.field[game.cursor[0]][game.cursor[1]].touch(2)
 
-                if event.key == pygame.K_d :
+                if event.key == game.keys.dig_out :
                     x = game.cursor[0]
                     y = game.cursor[1]
                     game.field.field[x][y].touch(1)
