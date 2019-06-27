@@ -21,7 +21,7 @@ def main() :
             if event.type == pygame.QUIT:
                 w_close = True
 
-        '''if event.type == pygame.MOUSEBUTTONUP:
+            '''if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
 
                 if not game.gameover :
@@ -43,27 +43,27 @@ def main() :
                 else :
                     pass'''
 
-        if event.type == pygame.KEYDOWN :
-            if event.key == pygame.K_q : # quit
-                w_close = True
-            if event.key == pygame.K_r : # restart
-                game.restart()
-            if event.key == pygame.K_o : # open all
-                game.open_all()
+            if event.type == pygame.KEYDOWN :
+                if event.key == pygame.K_q : # quit
+                    w_close = True
+                if event.key == pygame.K_r : # restart
+                    game.restart()
+                if event.key == pygame.K_o : # open all
+                    game.open_all()
 
-            if event.key == pygame.K_m :
-                game.field.field[game.cursor[0]][game.cursor[1]].touch(0)
-            if event.key == pygame.K_u :
-                game.field.field[game.cursor[0]][game.cursor[1]].touch(2)
+                if event.key == pygame.K_m :
+                    game.field.field[game.cursor[0]][game.cursor[1]].touch(0)
+                if event.key == pygame.K_u :
+                    game.field.field[game.cursor[0]][game.cursor[1]].touch(2)
 
-            if event.key == pygame.K_d :
-                x = game.cursor[0]
-                y = game.cursor[1]
-                game.field.field[x][y].touch(1)
-                if game.field.field[x][y].face == 3 :
-                    game.finish_game()
-                if (game.field.field[x][y].status == 0) & (game.field.field[x][y].face == 2) :
-                    game.field.uncover_void(x, y)
+                if event.key == pygame.K_d :
+                    x = game.cursor[0]
+                    y = game.cursor[1]
+                    game.field.field[x][y].touch(1)
+                    if game.field.field[x][y].face == 3 :
+                        game.finish_game()
+                    if (game.field.field[x][y].status == 0) & (game.field.field[x][y].face == 2) :
+                        game.field.uncover_void(x, y)
             
 
         # --- игровая логика ---
