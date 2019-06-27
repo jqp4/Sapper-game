@@ -82,15 +82,16 @@ class Game :
 
 
     def __init__(self) :
-        self.lenX = 40
-        self.lenY = 20
-        self.ba = int(self.lenX * self.lenY / 7)
+        self.settings = self.upload_settings(filename='settings.mss')
+        self.lenX = int(self.settings[0])
+        self.lenY = int(self.settings[1])
+        self.ba = int(self.lenX * self.lenY / 100 * int(self.settings[2]))#int(self.lenX * self.lenY / 7)
         self.field = Field(self.lenX, self.lenY, self.ba)
         self.field.generate()
         self.gameover = False
         self.cursor = [int(self.lenX/2), int(self.lenY/2)]
         self.keys = Hot_Keys()
-        self.keys.set(self.upload_settings(filename='settings.mss'))
+        self.keys.set(self.settings[3:])
         self.upload_images()
 
 

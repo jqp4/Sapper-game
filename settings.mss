@@ -1,11 +1,15 @@
-hot keys :
 
-quit - [q]
-new game - [r]
-
-open all cells - [o]
-mark cell - [m]
-unmark cell - [u]
-dig out cell - [d]
+width = [40] cells
+height = [24] cells
+percentage of bombs = [13] %
+------------------
+quit - [q] key
+new game - [r] key
+------------------
+open all cells - [o] key
+mark cell - [m] key
+unmark cell - [u] key
+dig out cell - [d] key
+------------------
 
 that all
